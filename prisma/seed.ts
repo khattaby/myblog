@@ -1,6 +1,5 @@
-import { PrismaClient } from '../generated/prisma'
+import { PrismaClient } from '@prisma/client'
 
-// ... rest of your code
 const prisma = new PrismaClient()
 
 async function main() {
