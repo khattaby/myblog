@@ -1,9 +1,9 @@
 import PostCard from "./PostCard";
-import type { Post, User } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 
-type PostWithAuthor = Post & {
-  author: User;
-};
+type PostWithAuthor = Prisma.PostGetPayload<{
+  include: { author: true };
+}>;
 
 type Props = {
   posts: PostWithAuthor[];
