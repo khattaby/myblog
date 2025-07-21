@@ -3,8 +3,14 @@ import { prisma } from "@/lib/prisma";
 import AuthorFilter from "@/components/AuthorFilter";
 import PostList from "@/components/PostList";
 
-export default async function Home({ searchParams }: { searchParams: { authorId?: string } }) {
-  const authorId = searchParams.authorId ? Number(searchParams.authorId) : undefined;
+type Props = {
+  searchParams?: {
+    authorId?: string;
+  };
+};
+
+export default async function Home({ searchParams }: Props) {
+  const authorId = searchParams?.authorId ? Number(searchParams.authorId) : undefined;
 
   const [posts, users] = await Promise.all([
     prisma.post.findMany({
