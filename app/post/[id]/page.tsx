@@ -2,13 +2,7 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-interface PostPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default async function PostPage({ params }: PostPageProps) {
+export default async function PostPage({ params }: { params: { id: string } }) {
   const post = await prisma.post.findUnique({
     where: { id: parseInt(params.id, 10) },
     include: { author: true },
