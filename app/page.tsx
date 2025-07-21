@@ -1,10 +1,9 @@
-// @ts-nocheck
-
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import AuthorFilter from "@/components/AuthorFilter";
 import PostList from "@/components/PostList";
 
+// @ts-expect-error: we're skipping this for now due to missing types
 export default async function Home({ searchParams }) {
   const authorIdRaw = searchParams?.authorId;
   const authorId = typeof authorIdRaw === "string" ? Number(authorIdRaw) : undefined;
