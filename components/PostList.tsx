@@ -1,5 +1,5 @@
 import PostCard from "./PostCard";
-import type { Prisma } from "@/generated/prisma"; 
+import type { Prisma } from "@prisma/client";
 
 type PostWithAuthor = Prisma.PostGetPayload<{
   include: { author: true };
