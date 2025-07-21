@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { prisma } from "../../lib/prisma";
 
-
 import React from "react";
 import { createPost } from "../actions/postActions";
 
@@ -15,14 +14,15 @@ const Createpage = async () => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-8">
       <h2 className="text-2xl font-bold text-gray-900 mb-6">Create New Post</h2>
-              <div className="flex justify-center my-1">
-          <Link
-            href="/"
-            className="bg-green-400 hover:bg-blue-700 text-white text-sm py-4 px-8 rounded-full shadow-md transition duration-200"
-          >
-            <span className="text-lg">🚎</span> I changed my mind, take me back to the posts
-          </Link>
-        </div>
+      <div className="flex justify-center my-1">
+        <Link
+          href="/"
+          className="bg-green-400 hover:bg-blue-700 text-white text-sm py-4 px-8 rounded-full shadow-md transition duration-200"
+        >
+          <span className="text-lg">🚎</span> Take me back to
+          all posts
+        </Link>
+      </div>
       <form action={createPost} className="space-y-4">
         <div>
           <label

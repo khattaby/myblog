@@ -2,6 +2,7 @@
 
 import { deletePost, updatePost } from "@/app/actions/postActions";
 import { useState } from "react";
+import Link from 'next/link';
 
 type Post = {
   id: number;
@@ -47,9 +48,11 @@ export default function PostCard({ post }: Props) {
         </div>
 
         {/* Title & Content */}
-        <h2 className="text-2xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors">
-          {post.title}
-        </h2>
+        <Link href={`/post/${post.id}`}>
+          <h2 className="text-2xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors">
+            {post.title}
+          </h2>
+        </Link>
 
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-700 leading-relaxed">
