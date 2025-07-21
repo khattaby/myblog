@@ -3,7 +3,13 @@ import { prisma } from "@/lib/prisma";
 import AuthorFilter from "@/components/AuthorFilter";
 import PostList from "@/components/PostList";
 
-export default async function Home({ searchParams }: any) {
+type Props = {
+  searchParams?: {
+    authorId?: string;
+  };
+};
+
+export default async function Home({ searchParams }: Props) {
   const authorIdRaw = searchParams?.authorId;
   const authorId = typeof authorIdRaw === "string" ? Number(authorIdRaw) : undefined;
 
@@ -29,12 +35,12 @@ export default async function Home({ searchParams }: any) {
         </div>
 
         <div className="flex justify-center mt-10 mb-15">
-          <a
+          <Link
             href="/create"
             className="bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-4 px-8 rounded-lg shadow-md transition duration-200"
           >
             ✍️ Create New Post
-          </a>
+          </Link>
         </div>
 
         <PostList posts={posts} authorId={authorId} />
