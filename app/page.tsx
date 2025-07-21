@@ -5,13 +5,7 @@ import { prisma } from "@/lib/prisma";
 import AuthorFilter from "@/components/AuthorFilter";
 import PostList from "@/components/PostList";
 
-type Props = {
-  searchParams?: {
-    authorId?: string;
-  };
-};
-
-export default async function Home({ searchParams }: Props) {
+export default async function Home({ searchParams }) {
   const authorIdRaw = searchParams?.authorId;
   const authorId = typeof authorIdRaw === "string" ? Number(authorIdRaw) : undefined;
 
